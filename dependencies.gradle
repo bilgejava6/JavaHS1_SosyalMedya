@@ -1,0 +1,26 @@
+// buradan dışarıya extends edeceğiniz yapıları tanımlıyoruz.
+ext{
+    // burada bulunan isimlendirme bana ait. ahmet_amca bile yazabilirsiniz.
+   versions = [
+           springBoot               : '3.3.0',
+           springCloud              : '4.1.2',
+           postgreSQL               : '42.7.3',
+           lombok                   : '1.18.32',
+           mapstruct                : '1.5.5.Final',
+           openApi                  : '2.5.0'
+   ]
+
+   libs = [
+           springBootStarterWeb         : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
+           springBootStarterDataJpa     : "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBoot}",
+           springBootValidation         : "org.springframework.boot:spring-boot-starter-validation:${versions.springBoot}",
+           springCloudOpenFeign         : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}",
+           postgreSQL                   : "org.postgresql:postgresql:${versions.postgreSQL}",
+           lombok                       : "org.projectlombok:lombok:${versions.lombok}",
+           mapstruct                    : "org.mapstruct:mapstruct:${versions.mapstruct}",
+           mapstructProcessor           : "org.mapstruct:mapstruct-processor:${versions.mapstruct}",
+           swaggerUI                    : "org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions.openApi}"
+
+   ]
+
+}
