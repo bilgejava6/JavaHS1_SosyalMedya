@@ -1,14 +1,16 @@
 package com.muhammet.controller;
 
 import com.muhammet.dto.request.UserProfileCreateRequestDto;
+import com.muhammet.entity.UserProfile;
 import com.muhammet.service.UserProfileService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.w3c.dom.stylesheets.LinkStyle;
+
+import java.util.List;
+
 import static com.muhammet.config.RestApis.*;
 @RestController
 @RequestMapping(USER_PROFILE)
@@ -19,5 +21,10 @@ public class UserProfileController {
     @PostMapping(CREATE_PROFILE)
     public ResponseEntity<Boolean> createProfile(@RequestBody @Valid UserProfileCreateRequestDto dto){
         return ResponseEntity.ok(userProfileService.save(dto));
+    }
+
+    @GetMapping(GET_ALL)
+    public ResponseEntity<List<UserProfile>> getAll(String token){
+        return ResponseEntity.ok(userProfileService.getAll(token));
     }
 }

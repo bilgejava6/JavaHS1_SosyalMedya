@@ -29,11 +29,12 @@ public class AuthService {
       );
     }
 
-    public String register(AuthLoginRequestDto dto) {
-        Optional<Auth> optionalAuth = repository.findOptionalByUserNameAndPassword(dto.getUserName(),dto.getPassword());
+    public String login(AuthLoginRequestDto dto) {
+        Optional<Auth> optionalAuth = repository
+                .findOptionalByUserNameAndPassword(dto.getUserName(),dto.getPassword());
         if(optionalAuth.isEmpty())
             throw  new AuthException(ErrorType.BAD_REQUEST_USERNAME_OR_PASSWORD_ERROR);
 
-        return "TKN 00112255";
+        return "TKN: "+ optionalAuth.get().getId();
     }
 }
