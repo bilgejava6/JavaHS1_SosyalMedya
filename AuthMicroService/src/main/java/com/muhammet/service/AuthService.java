@@ -1,5 +1,6 @@
 package com.muhammet.service;
 
+import com.muhammet.config.JwtManager;
 import com.muhammet.dto.request.AuthLoginRequestDto;
 import com.muhammet.dto.request.AuthRegisterReqestDto;
 import com.muhammet.dto.request.UserProfileCreateRequestDto;
@@ -19,6 +20,7 @@ import java.util.Optional;
 public class AuthService {
     private final AuthRepository repository;
     private final UserProfileManager userProfileManager;
+    private final JwtManager jwtManager;
     public void save(AuthRegisterReqestDto dto) {
       Auth auth =  repository.save(AuthMapper.INSTANCE.fromAuthRegisterRequestDto(dto));
       userProfileManager.createProfile(
@@ -35,6 +37,6 @@ public class AuthService {
         if(optionalAuth.isEmpty())
             throw  new AuthException(ErrorType.BAD_REQUEST_USERNAME_OR_PASSWORD_ERROR);
 
-        return "TKN: "+ optionalAuth.get().getId();
+        return jwtManager.createToken(optionalAuth.get().getId());
     }
 }

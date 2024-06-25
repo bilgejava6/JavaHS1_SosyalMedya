@@ -1,7 +1,7 @@
 package com.muhammet.mapper;
 
 import com.muhammet.dto.request.UserProfileCreateRequestDto;
-import com.muhammet.entity.UserProfile;
+import com.muhammet.document.UserProfile;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;

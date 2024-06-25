@@ -48,15 +48,16 @@ allprojects {
     // tüm alt projelerde ortak olan bağımlılıkları buraya ekliyoruz.
     dependencies {
         implementation libs.springBootStarterWeb
-        implementation libs.springBootStarterDataJpa
+
         implementation libs.springBootValidation
         implementation libs.springCloudOpenFeign
-        implementation libs.postgreSQL
+
         implementation libs.lombok
         annotationProcessor libs.lombok
         implementation libs.mapstruct
         annotationProcessor libs.mapstructProcessor
         implementation libs.swaggerUI
+        implementation libs.jwt
 
     }
     // projenin test işlemleri için kullanılacak yapıyı tanımlıyoruz.

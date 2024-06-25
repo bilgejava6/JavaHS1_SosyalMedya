@@ -1,13 +1,12 @@
 package com.muhammet.controller;
 
 import com.muhammet.dto.request.UserProfileCreateRequestDto;
-import com.muhammet.entity.UserProfile;
+import com.muhammet.document.UserProfile;
 import com.muhammet.service.UserProfileService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
 

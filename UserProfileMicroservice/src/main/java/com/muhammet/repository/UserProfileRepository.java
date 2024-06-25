@@ -1,10 +1,10 @@
 package com.muhammet.repository;
 
-import com.muhammet.entity.UserProfile;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.muhammet.document.UserProfile;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
 
-public interface UserProfileRepository extends JpaRepository<UserProfile,Long> {
+public interface UserProfileRepository extends MongoRepository<UserProfile,String> {
     Optional<UserProfile> findOptionalByAuthId(Long auhtId);
 }

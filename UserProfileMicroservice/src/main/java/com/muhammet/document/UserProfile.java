@@ -1,21 +1,21 @@
-package com.muhammet.entity;
+package com.muhammet.document;
 
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
-@Table(name = "tbluserprofile")
+@Document
 public class UserProfile {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    String id;
     Long authId;
     String userName;
     String name;

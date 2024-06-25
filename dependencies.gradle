@@ -7,19 +7,24 @@ ext{
            postgreSQL               : '42.7.3',
            lombok                   : '1.18.32',
            mapstruct                : '1.5.5.Final',
-           openApi                  : '2.5.0'
+           openApi                  : '2.5.0',
+           jwt                      : '4.4.0'
    ]
 
    libs = [
            springBootStarterWeb         : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
            springBootStarterDataJpa     : "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBoot}",
+           springBootStarterDataMongo   : "org.springframework.boot:spring-boot-starter-data-mongodb:${versions.springBoot}",
            springBootValidation         : "org.springframework.boot:spring-boot-starter-validation:${versions.springBoot}",
            springCloudOpenFeign         : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}",
+           springCloudConfigServer      : "org.springframework.cloud:spring-cloud-config-server:${versions.springCloud}",
+           springCloudConfigClient      : "org.springframework.cloud:spring-cloud-starter-config:${versions.springCloud}",
            postgreSQL                   : "org.postgresql:postgresql:${versions.postgreSQL}",
            lombok                       : "org.projectlombok:lombok:${versions.lombok}",
            mapstruct                    : "org.mapstruct:mapstruct:${versions.mapstruct}",
            mapstructProcessor           : "org.mapstruct:mapstruct-processor:${versions.mapstruct}",
-           swaggerUI                    : "org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions.openApi}"
+           swaggerUI                    : "org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions.openApi}",
+           jwt                          : "com.auth0:java-jwt:${versions.jwt}"
 
    ]
 

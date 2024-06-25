@@ -32,9 +32,9 @@ public class GlobalExceptionHandler {
      * ilgili sınıf hata fırlatırsa onu yakalar.
      *
      */
-    @ExceptionHandler(UserProfileException.class)
+    @ExceptionHandler(PostException.class)
     @ResponseBody
-    public ResponseEntity<ErrorMessage> handlerSatisException(UserProfileException satisException){
+    public ResponseEntity<ErrorMessage> handlerSatisException(PostException satisException){
         return  new ResponseEntity<>(createMessage(satisException.getErrorType(),satisException), satisException.getErrorType().getHttpStatus());
     }
 
