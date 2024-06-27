@@ -53,6 +53,10 @@ docker run --name HSMongo -d -p 27017:27017 -e "MONGO_INITDB_ROOT_USERNAME=Bilge
 ## MongoDB & Spring Boot Configleri
 
 
-github token: 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
+## Redis Docker
+
+````bash
+    docker run -d -p 6379:6379 redis 
+````
 
     
