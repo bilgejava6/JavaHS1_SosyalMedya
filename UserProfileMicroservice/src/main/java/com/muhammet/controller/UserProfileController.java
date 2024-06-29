@@ -26,4 +26,9 @@ public class UserProfileController {
     public ResponseEntity<List<UserProfile>> getAll(String token){
         return ResponseEntity.ok(userProfileService.getAll(token));
     }
+
+    @GetMapping("/isim-sifreleme")
+    public ResponseEntity<String> sifrele(String name){
+        return ResponseEntity.ok(userProfileService.sifrele(name));
+    }
 }

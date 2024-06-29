@@ -8,10 +8,12 @@ import com.muhammet.exception.UserProfileException;
 import com.muhammet.mapper.UserProfileMapper;
 import com.muhammet.repository.UserProfileRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -31,5 +33,22 @@ public class UserProfileService {
         if (optionalUser.isEmpty())
             throw new UserProfileException(ErrorType.INVALID_AUTHID_ERROR);
         return repository.findAll();
+    }
+
+    @Cacheable(value = "sifreleme")
+    public String sifrele(String name) {
+        String result="";
+        String[] dize = {"K","Ü",",","?","(","&","%"};
+        Random random = new Random();
+        for (int i=0;i<name.length();i++){
+           result = result.concat(name.charAt(name.length()-i-1)+dize[random.nextInt(6)]);
+        }
+        try{
+            Thread.sleep(3000L);
+        }catch (InterruptedException interruptedException){
+            System.out.println("Err");
+        }
+
+        return result;
     }
 }
