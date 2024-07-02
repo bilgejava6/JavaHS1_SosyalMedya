@@ -1,3 +1,4 @@
 dependencies {
     implementation libs.springBootStarterDataElastic
+    implementation libs.springBootStarterSecurity
 }
