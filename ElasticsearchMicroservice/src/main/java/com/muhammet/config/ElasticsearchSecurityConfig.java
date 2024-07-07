@@ -36,7 +36,8 @@ public class ElasticsearchSecurityConfig {
         httpSecurity.authorizeHttpRequests(req->
                 req
                         .requestMatchers(
-                        "/swagger-ui/**","/v3/api-docs/**"
+                        "/swagger-ui/**","/v3/api-docs/**",
+                                "/authority/save/**"
                         ) // Bu kod sadece gelen isteğin url sinin çözümlemek ve eşleştirmek için yazılır.
                         .permitAll() // herkese izin ver.
 

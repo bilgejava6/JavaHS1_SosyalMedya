@@ -5,6 +5,8 @@ import com.muhammet.repository.UserProfileRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserProfileService {
@@ -12,5 +14,9 @@ public class UserProfileService {
 
     public UserProfile save(UserProfile build) {
         return repository.save(build);
+    }
+
+    public Iterable<UserProfile> getAll() {
+        return repository.findAll();
     }
 }
