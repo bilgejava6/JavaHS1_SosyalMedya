@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5444/AuthDB
+    url: ${DB_POSTGRES_URL}
     driver-class-name: org.postgresql.Driver
     username: postgres
-    password: root
+    password: Bilge*!
   jpa:
     hibernate:
       ddl-auto: update
