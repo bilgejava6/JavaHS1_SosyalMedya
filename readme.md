@@ -54,7 +54,7 @@
         roles: ["readWrite","dbAdmin"]
     })
 ```
-   db.createUser({user: "bilgeUser",pwd: "bilgeUser*",roles: ["readWrite","dbAdmin"]}) 
+   db.createUser({user: "admin",pwd: "root",roles: ["readWrite","dbAdmin"]}) 
 ```
 
 ## Docker üzerinde Redis Single Node oluşturmak
@@ -182,11 +182,11 @@ spring:
     docker build -t <HUB_REPOSITORY_NAME/IMAGE NAME:VERSION> .
     DİKKAT!!!! MacOS M Chipset kullananlar özellikle platform belirtmelidirler.
 
-    1- docker build --platform linux/amd64 -t javaboost2/auth-service:v.0.3 .
+    1- docker build --platform linux/amd64 -t javaboost2/javahs1auth:v03 .
 
-    2- docker build --platform linux/amd64 -t javaboost2/config-service:v.0.2 .
+    2- docker build --platform linux/amd64 -t javaboost2/javahs1configserver:v05 .
 
-    3- docker build --platform linux/amd64 -t javaboost2/user-service:v.0.2 .
+    3- docker build --platform linux/amd64 -t javaboost2/javahs1user:v04 .
 
     4- docker build --platform linux/amd64 -t javaboost2/gateway-service:v.0.1 .
 

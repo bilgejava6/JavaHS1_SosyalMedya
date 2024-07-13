@@ -18,6 +18,7 @@ public class UserProfileController {
     private final UserProfileService userProfileService;
 
     @PostMapping(CREATE_PROFILE)
+    @CrossOrigin("*")
     public ResponseEntity<Boolean> createProfile(@RequestBody @Valid UserProfileCreateRequestDto dto){
         return ResponseEntity.ok(userProfileService.save(dto));
     }

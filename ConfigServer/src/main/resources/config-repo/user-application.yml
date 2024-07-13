@@ -4,7 +4,7 @@ server:
 spring:
   data:
     mongodb:
-      host: {DB_MONGO_HOST}
+      host: service-clusterip-mongo
       port: 27017
       username: admin
       password: root

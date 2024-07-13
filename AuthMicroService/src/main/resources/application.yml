@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      uri: http://10.48.0.17:8888
+      uri: http://service-clusterip-config:8888
   config:
     import: "configserver:"
   application:
