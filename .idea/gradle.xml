@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/ConfigServer" />
             <option value="$PROJECT_DIR$/ConfigServerGit" />
             <option value="$PROJECT_DIR$/ElasticsearchMicroservice" />
+            <option value="$PROJECT_DIR$/GatewayServer" />
             <option value="$PROJECT_DIR$/PostMicroservice" />
             <option value="$PROJECT_DIR$/UserProfileMicroservice" />
           </set>

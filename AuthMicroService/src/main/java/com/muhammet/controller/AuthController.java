@@ -8,10 +8,8 @@ import com.muhammet.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import static com.muhammet.config.RestApis.*;
 @RestController
 @RequestMapping(AUTH)
@@ -19,6 +17,7 @@ import static com.muhammet.config.RestApis.*;
 public class AuthController {
     private final AuthService authService;
     @PostMapping(REGISTER)
+    @CrossOrigin("*")
     public ResponseEntity<Boolean> register(@RequestBody @Valid AuthRegisterReqestDto dto){
         if(!dto.getPassword().equals(dto.getRePassword()))
             throw new AuthException(ErrorType.BAD_REQUEST_REPASSWORD_ERROR);
@@ -26,6 +25,7 @@ public class AuthController {
         return ResponseEntity.ok(true);
     }
     @PostMapping(LOGIN)
+    @CrossOrigin("*")
     public ResponseEntity<String> login(@RequestBody @Valid AuthLoginRequestDto dto){
        return ResponseEntity.ok(authService.login(dto));
     }
