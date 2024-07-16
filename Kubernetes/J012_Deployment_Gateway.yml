@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec: 
+      containers:
+        - name: pod-gateway
+          image: javaboost2/javahs1gateway:v03
+          resources:
+            limits:
+              memory: "2048Mi"
+              cpu: "300m"
+          ports:
+          - containerPort: 80
+
+

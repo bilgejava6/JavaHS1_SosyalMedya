@@ -24,11 +24,13 @@ public class UserProfileController {
     }
 
     @GetMapping(GET_ALL)
+    @CrossOrigin("*")
     public ResponseEntity<List<UserProfile>> getAll(String token){
         return ResponseEntity.ok(userProfileService.getAll(token));
     }
 
     @GetMapping("/isim-sifreleme")
+    @CrossOrigin("*")
     public ResponseEntity<String> sifrele(String name){
         return ResponseEntity.ok(userProfileService.sifrele(name));
     }

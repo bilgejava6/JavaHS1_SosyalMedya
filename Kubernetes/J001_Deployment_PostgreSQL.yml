@@ -1,0 +1,34 @@
+# Her k8s objesinin farklı versiyonu olacaktır. Lütfen sitesinden kontrol ediniz.
+apiVersion: apps/v1
+# oluşturmak istediğiniz k8s objesinin türünü yazıyoruz.
+kind: Deployment
+# her objenin 2 ana bileşen config i vardır.
+metadata:
+  name: deployment-postgresql
+spec:
+  selector:
+    matchLabels:
+      db: db-postgresql
+# Burada yöneteceğiniz pod ların özelliklerini tanımlıyoruz.
+  template:
+    metadata:
+      labels:
+        db: db-postgresql
+    spec: 
+      containers:
+# Burada sanal pc yi tanımlıyoruz. bu pc nin tüm özelliklerini burada ekleyebiliriz.
+        - name: pod-postgresql
+          image: postgres
+          resources:
+# burada Pc nin kapasitesinin sınırlarını belirliyoruz. cpu gücü şöyle hesaplanır.
+# bir işlemcide 8 çekirdek olsun, bu cpu nun gücü 8.000 olarak alınır ve buna göre
+# pay edilir.
+            limits:
+              memory: "2048Mi"
+              cpu: "500m"
+          ports:
+# burada container in dışarıya açacağı portları gelirtiyoruz.
+          - containerPort: 5432
+          env:
+            - name: POSTGRES_PASSWORD
+              value: "Bilge*!"

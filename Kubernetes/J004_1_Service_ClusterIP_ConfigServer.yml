@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-clusterip-config
+spec:
+  selector:
+    app: configserver
+  type: ClusterIP
+  ports:
+  - name: configtcp
+    port: 8888
+    targetPort: 8888

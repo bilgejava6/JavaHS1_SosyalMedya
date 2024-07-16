@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-configserver
+spec:
+  selector:
+    matchLabels:
+      app: configserver
+  template:
+    metadata:
+      labels:
+        app: configserver
+    spec: 
+      containers:
+        - name: pod-configserver
+          image: javaboost2/javahs1configserver:v05
+          resources:
+            limits:
+              memory: "2048Mi"
+              cpu: "300m"
+          ports:
+          - containerPort: 8888

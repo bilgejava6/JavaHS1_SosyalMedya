@@ -182,13 +182,13 @@ spring:
     docker build -t <HUB_REPOSITORY_NAME/IMAGE NAME:VERSION> .
     DİKKAT!!!! MacOS M Chipset kullananlar özellikle platform belirtmelidirler.
 
-    1- docker build --platform linux/amd64 -t javaboost2/javahs1auth:v03 .
+    1- docker build --platform linux/amd64 -t javaboost2/javahs1auth:v04 .
 
     2- docker build --platform linux/amd64 -t javaboost2/javahs1configserver:v05 .
 
-    3- docker build --platform linux/amd64 -t javaboost2/javahs1user:v04 .
+    3- docker build --platform linux/amd64 -t javaboost2/javahs1user:v05 .
 
-    4- docker build --platform linux/amd64 -t javaboost2/gateway-service:v.0.1 .
+    4- docker build --platform linux/amd64 -t javaboost2/javahs1gateway:v01 .
 
 
 

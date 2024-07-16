@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-redis
+spec:
+  selector:
+    matchLabels:
+      db: db-redis
+  template:
+    metadata:
+      labels:
+        db: db-redis
+    spec: 
+      containers:
+        - name: pod-redis
+          image: redis
+          resources:
+            limits:
+              memory: "2048Mi"
+              cpu: "200m"
+          ports:
+          - containerPort: 6379
+

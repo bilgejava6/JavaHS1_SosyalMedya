@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec: 
+      containers:
+        - name: pod-auth
+          image: javaboost2/javahs1auth:v04
+          resources:
+            limits:
+              memory: "2048Mi"
+              cpu: "200m"
+          ports:
+          - containerPort: 9090
+          env:
+            - name: DB_POSTGRES_URL
+              value: "jdbc:postgresql://service-clusterip-postgersql:5432/AuthDB"
+
+
