@@ -48,26 +48,20 @@ allprojects {
     // tüm alt projelerde ortak olan bağımlılıkları buraya ekliyoruz.
     dependencies {
         implementation libs.springBootStarterWeb
-
         implementation libs.springBootValidation
         implementation libs.springCloudOpenFeign
-
         implementation libs.lombok
         annotationProcessor libs.lombok
         implementation libs.mapstruct
         annotationProcessor libs.mapstructProcessor
         implementation libs.swaggerUI
         implementation libs.jwt
-
     }
     // projenin test işlemleri için kullanılacak yapıyı tanımlıyoruz.
     test{
         useJUnitPlatform()
     }
-
 }
-
-
 configurations {
     compileOnly{
         extendsFrom annotationProcessor

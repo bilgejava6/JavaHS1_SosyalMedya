@@ -2,9 +2,19 @@ server:
   port: 9091
 
 spring:
+  amqp:
+    deserialization:
+      trust:
+        all: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: root
   data:
     mongodb:
-      host: service-clusterip-mongo
+      host: localhost
+#      host: service-clusterip-mongo
       port: 27017
       username: admin
       password: root

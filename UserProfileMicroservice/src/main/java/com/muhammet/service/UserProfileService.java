@@ -6,6 +6,7 @@ import com.muhammet.document.UserProfile;
 import com.muhammet.exception.ErrorType;
 import com.muhammet.exception.UserProfileException;
 import com.muhammet.mapper.UserProfileMapper;
+import com.muhammet.rabbitmq.model.CreateAuthModel;
 import com.muhammet.repository.UserProfileRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
@@ -23,6 +24,13 @@ public class UserProfileService {
     public Boolean save(UserProfileCreateRequestDto dto) {
         repository.save(UserProfileMapper.INSTANCE.fromRequestDto(dto));
         return true;
+    }
+
+    public void save(CreateAuthModel model){
+        repository.save(UserProfile.builder()
+                        .userName(model.getUserName())
+                        .authId(model.getAuthId())
+                .build());
     }
 
     public List<UserProfile> getAll(String token) {

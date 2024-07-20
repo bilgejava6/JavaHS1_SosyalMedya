@@ -9,6 +9,8 @@ import com.muhammet.exception.AuthException;
 import com.muhammet.exception.ErrorType;
 import com.muhammet.manager.UserProfileManager;
 import com.muhammet.mapper.AuthMapper;
+import com.muhammet.rabbitmq.model.CreateAuthModel;
+import com.muhammet.rabbitmq.producer.CreateAuthProducer;
 import com.muhammet.repository.AuthRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,14 +23,21 @@ public class AuthService {
     private final AuthRepository repository;
     private final UserProfileManager userProfileManager;
     private final JwtManager jwtManager;
+    private final CreateAuthProducer createAuthProducer;
     public void save(AuthRegisterReqestDto dto) {
       Auth auth =  repository.save(AuthMapper.INSTANCE.fromAuthRegisterRequestDto(dto));
-      userProfileManager.createProfile(
-              UserProfileCreateRequestDto.builder()
+      createAuthProducer.sendMessage(
+              CreateAuthModel.builder()
                       .authId(auth.getId())
                       .userName(auth.getUserName())
                       .build()
       );
+//      userProfileManager.createProfile(
+//              UserProfileCreateRequestDto.builder()
+//                      .authId(auth.getId())
+//                      .userName(auth.getUserName())
+//                      .build()
+//      );
     }
 
     public String login(AuthLoginRequestDto dto) {

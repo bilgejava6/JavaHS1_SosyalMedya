@@ -2,11 +2,17 @@ server:
   port: 9090
 
 spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: root
   datasource:
-    url: ${DB_POSTGRES_URL}
+    url: jdbc:postgresql://localhost:5444/AuthDB
+#    url: ${DB_POSTGRES_URL}
     driver-class-name: org.postgresql.Driver
     username: postgres
-    password: Bilge*!
+    password: root
   jpa:
     hibernate:
       ddl-auto: update
